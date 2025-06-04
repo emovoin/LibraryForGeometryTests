@@ -49,9 +49,10 @@
             return new BoundingBox(new Point(minX, minY), new Point(maxX, maxY));
         }
 
-        // Проверяет, есть ли пересечение между любыми двумя фигурами
         public bool HasIntersection(Polygon other)
         {
+            if (ReferenceEquals(this, other)) return false;
+
             if (other == null) throw new ArgumentNullException(nameof(other));
 
             foreach (var shapeThis in _shapes)

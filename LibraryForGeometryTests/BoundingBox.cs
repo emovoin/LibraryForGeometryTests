@@ -10,15 +10,12 @@
 
         public BoundingBox(Point bottomLeft, Point topRight)
         {
-            if (bottomLeft == null)
-                throw new ArgumentNullException(nameof(bottomLeft));
-            if (TopRight == null)
-                throw new ArgumentNullException(nameof(TopRight));
-            if (bottomLeft.X > topRight.X || bottomLeft.Y > topRight.Y)
+            if (bottomLeft == null || topRight == null
+                || bottomLeft.X > topRight.X
+                || bottomLeft.Y > topRight.Y)
+            {
                 throw new ArgumentException("пися");
-
-
-
+            }
 
             BottomLeft = bottomLeft;
             TopRight = topRight;
